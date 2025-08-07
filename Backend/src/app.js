@@ -19,7 +19,7 @@ dotenv.config();
 console.log('CORS_ORIGIN:', process.env.CORS_ORIGIN );
 
 const corsOptions = {
-  origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+  origin: process.env.CORS_ORIGIN || 'http://https://gambitor.iitr.ac.in:3000',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   credentials: true,
 };

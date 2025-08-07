@@ -61,7 +61,7 @@ function Home() {
       dispatch(signUpStart());
 
       // Step 1: Redirect the user to Google login
-      window.location.href = "http://localhost:4000/api/v1/auth/google";
+      window.location.href = "http://https://gambitor.iitr.ac.in:4000/api/v1/auth/google";
 
       // Step 2: The redirection will be handled by your backend
       // Since OAuth redirection is handled server-side and browser-based redirection to handle tokens might not be possible,
