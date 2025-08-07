@@ -1,0 +1,329 @@
+import { asyncHandler } from "../utils/asyncHandler.js";
+import { ApiError } from "../utils/ApiError.js";
+import { ApiResponse } from "../utils/ApiResponse.js";
+import { prisma } from "../db/index.js";
+import vine, { errors } from "@vinejs/vine";
+import { registerSchema, loginSchema, infoSchema ,verifySchema} from "../validations/authValidation.js";
+import bcrypt from "bcryptjs";
+import { createOTP, verifyOTP } from "../utils/otpGenerator.js";
+import mailService from "../utils/mailService.js";
+import { sendOtp, generateOTP } from "../utils/mobileOTP.js";
+import generateTokenAndSetCookie from "../utils/generateTokenAndSetCookie.js";
+
+class AuthController {
+  static register = asyncHandler(async (req, res, next) => {
+    const body = req.body;
+    const validator = vine.compile(registerSchema);
+
+    try {
+      // Validate request body
+      const payload = await validator.validate(body);
+
+      const existingUser = await prisma.user.findUnique({
+        where: { email: payload.email },
+      });
+
+      if (existingUser) {
+        throw new ApiError(400, "Email already in use");
+      }
+
+      const salt = bcrypt.genSaltSync(10);
+      payload.password = bcrypt.hashSync(payload.password, salt);
+
+      const user = await prisma.user.create({
+        data: payload,
+      });
+
+      if (user) {
+        const payloadData = {
+          id: user.id,
+          email: user.email,
+        };
+        generateTokenAndSetCookie(payloadData, res);
+        const response = new ApiResponse(200, user, "User created successfully");
+        
+        return res.status(200).json(response);
+      }
+    } catch (error) {
+      if (error instanceof errors.E_VALIDATION_ERROR) {
+        console.log(error)
+        throw new ApiError(400, "Validation Error", error.messages);
+      }
+      // Pass other errors to the global error handler
+      throw error;
+    }
+  });
+
+  static login = asyncHandler(async (req, res, next) => {
+    const body = req.body;
+    const validator = vine.compile(loginSchema);
+
+    try {
+      const payload = await validator.validate(body);
+      const findUser = await prisma.user.findUnique({
+        where: {
+          email: payload.email,
+        },
+      });
+
+      if (!findUser) {
+        throw new ApiError(400, "No user found with this email.");
+      }
+
+      if (!bcrypt.compareSync(payload.password, findUser.password)) {
+        throw new ApiError(400, "Incorrect Password.");
+      }
+
+      // Issue token to user
+      const payloadData = {
+        id: findUser.id,
+        email: findUser.email,
+      };
+      generateTokenAndSetCookie(payloadData, res);
+
+      const response = new ApiResponse(200, findUser, "Logged in successfully");
+      return res.status(200).json(response);
+    } catch (error) {
+      if (error instanceof errors.E_VALIDATION_ERROR) {
+        throw new ApiError(400, "Validation Error", error.messages);
+      }
+      throw error;
+    }
+  });
+
+  static failureGoogleLogin = (req, res) => {
+    res.status(400).json({ message: "Google login failed" });
+  };
+
+  static updateAdditionalDetails = asyncHandler(async (req, res) => {
+    try {
+      // Validate input data
+      console.log(req.body);
+      const name=req.body.name;
+      const contactNumber = req.body.contactNumber
+      const formdata= {
+        ...req.body.formData,
+        name,
+        contactNumber,
+      }
+      console.log(formdata)
+      const validator = vine.compile(infoSchema);
+      const validatedData = await validator.validate(formdata);
+      // Extract additional fields from req.body if present
+      const { referralCode} = req.body.formData;
+      
+      if (referralCode) {
+        console.log(referralCode)
+        const referringUser = await prisma.user.findUnique({ where: { myReferral:referralCode } });
+        console.log(referringUser)
+        if (referringUser) {
+          // Increment the referral count for the referring user
+          await prisma.user.update({
+            where: { id: referringUser.id },
+            data: {
+              referralCount: {
+                increment: 1,
+              },
+            },
+          });
+        }
+      }
+      // Merge validated data with additional fields
+      const data = {
+        ...validatedData,
+        referralCode,
+      };
+      // Update user in database
+      console.log(req.params)
+      console.log(data)
+      const userId = parseInt(req.params.id);
+      console.log(userId);
+      const updatedUser = await prisma.user.update({
+        where: { id: userId },
+        data: data,
+      });
+      const user = await prisma.user.findUnique({where :{id:userId}});
+      console.log(user.email)
+      console.log(user)
+      const response = new ApiResponse(200, {...updatedUser }, "User updated successfully");
+      console.log(user.category.toLowerCase())
+      const mailOptions = {
+        from: process.env.your_gmail,
+        to: user.email,
+        subject: "Registration for GambitoR Successful.",
+        text: `Hello ${req.body.name}, \n
+        Team GambitoR is delighted to inform you that you have successfully registered for GambitoR 3.0! \n  
+        These are the credentials you have entered.
+        Mobile Number: ${req.body.contactNumber} 
+        Email: ${user.email} 
+        \n
+        For Android Users: Download our app from the Play Store and log in using your Batch Code: ${user.category.toLowerCase()}. 
+
+        For iOS Users: Install Classplus app from app store, enter the org code QNMPJQ and then the Batch code: ${user.category.toLowerCase()}.
+        Follow us on our social media handles to stay connected! \n
+        Further updates will be sent to your registered email address. \n
+        \n
+        With regards,
+        Team GambitoR.
+        `,
+      };
+
+      mailService.sendMail(mailOptions, function (err) {
+        if (err) {
+          next(new ApiError(500, err.message, [], err.stack));
+        } else {
+          res.status(201).json({
+            status: "success",
+            data: "Registration Completed Successfully!",
+          });
+        }
+      });
+
+      return res.status(200).json(response);
+  
+    } catch (error) {
+      console.log(error)
+      if (error instanceof errors.E_VALIDATION_ERROR) {
+        throw new ApiError(400, "Validation Error", error.messages);
+      }
+      if (error instanceof ApiError) {
+        throw error;
+      }
+      throw new ApiError(500, "Details cannot be updated");
+    }
+  });
+
+  static sendOtp = asyncHandler(async (req, res, next) => {
+    const validator = vine.compile(verifySchema);
+    try {
+      const validatedData = await validator.validate(req.body);
+      const { email } = validatedData;
+      // Check if the email already exists in the database
+      console.log(email)
+      const existingUser = await prisma.user.findUnique({
+        where: { email: email },
+      });
+      if (existingUser) {
+        return next(new ApiError(400, "Email already in use"));
+      }
+      const otpCode = await createOTP(email);
+      //console.log(otpCode);
+      const mailOptions = {
+        from: process.env.your_gmail,
+        to: email,
+        subject: "Email confirmation",
+        text: `Thank you for registering for GambitoR 3.0 .Please use the code ${otpCode} to verify your email and proceed with the registration`,
+      };
+      mailService.sendMail(mailOptions, function (err) {
+        if (err) {
+          return next(new ApiError(500, err.message, [], err.stack));
+          //console.log(err);
+        } else {
+          res.status(200).json({
+            status: "success",
+            data: "Mail sent successfully.",
+          });
+        }
+      });
+    } catch (error) {
+      console.log(error)
+      if (error instanceof errors.E_VALIDATION_ERROR) {
+        throw new ApiError(400, "Validation Error", error.messages);
+      }
+      if (error instanceof ApiError) {
+        next(error);
+      }
+      return next(new ApiError(500, "Email cannot be sent", [], error.stack));
+    }
+  });
+
+  static verifyOtp = asyncHandler(async (req, res, next) => {
+    try {
+      const { email, otp } = req.body;
+      console.log(email);
+      console.log(otp);
+      const isOtpValid = await verifyOTP(email, otp);
+      console.log(isOtpValid);
+      if (isOtpValid) {
+        res.json({ message: "OTP verified successfully" });
+      } else {
+        res.status(400).json({ message: "Invalid OTP" });
+      }
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  static sendOtpPhone = asyncHandler(async (req, res, next) => {
+    try {
+      const phoneNumber = "+91" + req.body.contactNumber;
+      if (!phoneNumber) {
+        return res.status(400).json({ message: "Phone number is required" });
+      }
+
+      const otp = generateOTP();
+      const expiresAt = new Date(Date.now() + 5 * 60 * 1000);
+      await prisma.phoneotp.create({
+        data: {
+          phoneNumber,
+          otp,
+          expiresAt,
+        },
+      });
+
+      const response = await sendOtp(phoneNumber, otp);
+
+      console.log(`Verification code sent to ${phoneNumber}`);
+      res.status(200).json({
+        status: "success",
+        data: "SMS sent successfully.",
+        response,
+      });
+    } catch (error) {
+      console.error("Error sending verification code:", error);
+      res.status(500).json({
+        status: "error",
+        message: "Failed to send SMS.Check your phone Number",
+      });
+    }
+  });
+
+  static verifyOtpPhone = asyncHandler(async (req, res, next) => {
+    try {
+      const phoneNumber = "+91" + req.body.contactNumber;
+      const otp = req.body.otp;
+      if (!phoneNumber || !otp) {
+        return res.status(400).json({ message: "Phone number and OTP are required" });
+      }
+      const otpRecord = await prisma.phoneotp.findFirst({
+        where: {
+          phoneNumber,
+          otp,
+          expiresAt: {
+            gt: new Date(),
+          },
+        },
+      });
+
+      if (otpRecord) {
+        await prisma.phoneotp.delete({
+          where: {
+            id: otpRecord.id,
+          },
+        });
+        return res.status(200).json({ message: "OTP verified successfully" });
+      } else {
+        return res.status(400).json({ message: "Invalid or expired OTP" });
+      }
+    } catch (error) {
+      console.error("Error verifying code:", error);
+      throw error;
+    }
+  });
+
+  static logout = (req, res) => {
+    res.clearCookie('jwt').status(200).json('Signout success!');
+  };
+}
+
+export default AuthController;
