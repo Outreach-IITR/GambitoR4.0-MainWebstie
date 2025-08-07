@@ -26,10 +26,10 @@ router.get("/auth/google", passport.authenticate("google", { scope: ["profile", 
 
 router.get(
   "/auth/google/callback",
-  passport.authenticate("google", { failureRedirect: "http://https://gambitor.iitr.ac.in:3000/login" }),
+  passport.authenticate("google", { failureRedirect: "https://gambitor.iitr.ac.in:3000/login" }),
   (req, res) => {
     const email = req.user.email;
-    res.redirect(`http://https://gambitor.iitr.ac.in:3000/auth/google/callback?email=${encodeURIComponent(email)}`);
+    res.redirect(`https://gambitor.iitr.ac.in:3000/auth/google/callback?email=${encodeURIComponent(email)}`);
   }
 );
 
