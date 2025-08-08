@@ -207,11 +207,11 @@ const LoginComponent = () => {
       {/* Right side: Image section */}
       <div className="hidden lg:flex lg:w-1/2 items-center justify-center" style={{ backgroundColor: '#282A36' }}>
         <div
-          className="w-full h-full bg-cover bg-center" // 'bg-cover' class is already present, but can be overridden by inline style
+          className="w-full h-full bg-[width:100%_auto] bg-center" // 'bg-cover' class is already present, but can be overridden by inline style
           style={{
             backgroundImage: "url('/harry-potter.svg')",
-            backgroundSize: 'cover',       // Scales the image to cover the entire container.
-                                         // Will crop if aspect ratios don't match, but no blank space.
+            backgroundSize: '100%',       // Scales the image to cover the entire container.
+                                 // Will crop if aspect ratios don't match, but no blank space.
             backgroundRepeat: 'no-repeat', // Ensures the image does not repeat.
             backgroundPosition: 'center',  // Centers the image within the container.
           }}

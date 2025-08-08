@@ -26,11 +26,11 @@ const Testimonials: React.FC = () => {
 
   return (
     <div id="TESTIMONIAL" className="relative z-[2] flex flex-col items-center justify-items-center py-[5vw] mt-[8rem] overflow-hidden space-y-12">
-      <h1 className="text-[52px] font-normal font-dragon bg-gradient-to-b from-[#5A3E17] via-[#FFF5B6] to-[#D4AF37] bg-clip-text text-transparent">
+      <h1 className="text-[48px] sm:text-[52px] font-normal font-dragon bg-gradient-to-b from-[#5A3E17] via-[#FFF5B6] to-[#D4AF37] bg-clip-text text-transparent">
         TESTIMONIALS
       </h1>
 
-      <div className="relative w-[90vw] max-w-6xl h-[320px] mt-8">
+      <div className="relative w-[90vw] max-w-6xl h-[320px] sm:mt-8">
         {slides.map((slide, idx) => {
           const offset = getOffset(idx); 
           let translate = "";
