@@ -7,7 +7,7 @@ import Navbar from './NavBar1.jsx';
 
 import V1 from './assets/Syllabus/v1.svg';
 import W1 from './assets/Syllabus/w1.svg';
-import Timemap from './assets/Syllabus/map1.svg';
+
 
 function NavButton({text}:any){
     return (
@@ -60,13 +60,6 @@ export default function Syllabus() {
                     )}
                 </div> */}
         
-            <h1 className="text-[48px] sm:text-[48px] leading-[36px] sm:leading-[45px] my-2 font-normal font-dragon text-2xl bg-gradient-to-b from-[#5A3E17] via-[#FFF5B6] to-[#D4AF37] bg-clip-text text-transparent">
-                    TIMELINE
-                </h1>
-            <div  className=" w-full flex justify-center items-center">
-            <Image src={Timemap} alt="" className="h-[500px] my-10 w-[500x] "/>   
-
-            </div>
-        </div>
+                </div>
     );
 }

@@ -10,6 +10,7 @@ import Syllabus from './Syllabus'
 import Register from './Register'
 import PostAbout from './PostAbout'
 import bottomgp from './assets/bottomgp.svg';
+import Timeline from './Timeline'
 
 import NavBar1 from './NavBar1'
 import NavBar from './NavBar'
@@ -45,10 +46,10 @@ const Mobile = () => {
       {/* <NavBar1></NavBar1> */}
       
       <Categories></Categories>
-      
+       <Syllabus></Syllabus>
       <Prize></Prize>
-      
-      <Syllabus></Syllabus>
+      <Timeline></Timeline>
+     
       <Testimonials></Testimonials>
       <div className=' relative z-20'>
       <HomePageCarousel></HomePageCarousel>

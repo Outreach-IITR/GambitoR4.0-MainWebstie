@@ -47,7 +47,7 @@ const HomePageCarousel = () => {
   };
 
   return (
-    <div className="YTCarousel relative mt-0 z-1 pt-[5vw] lg:top-[10rem] top-[5rem] space-y-12 lg:bg-transparent lg:bg-[#2445B5]" id="TESTIMONIAL">
+    <div className="YTCarousel relative mt-0 z-1 pt-[5vw] lg:top-[10rem] top-[5rem] space-y-12 lg:bg-transparent lg:bg-[#2445B5]" id="">
       <div className="">
         <h1 className="text-[52px] leading-[45px] my-2 font-normal font-dragon text-2xl bg-gradient-to-b from-[#5A3E17] via-[#FFF5B6] to-[#D4AF37] bg-clip-text text-transparent">IIT ROORKEE AT A GLANCE</h1>
         {/* <p>Don't just take our word, see for yourself</p> */}

@@ -24,13 +24,14 @@ export default function NavButtons() {
             <ul className="flex flex-row justify-between "
             onClick ={(event)=>{
                 //scroll to section
-                event.preventDefault();
-                const target = event.target as HTMLAnchorElement;
-                const id = target.getAttribute('href')?.replace('#','')
-                const element = document.getElementById(String(id))
-                element?.scrollIntoView({
-                    behavior: 'smooth'
-                })
+                const anchor = (event.target as HTMLElement).closest("a");
+                const id = anchor?.getAttribute("href")?.replace("#", "");
+                const element = document.getElementById(id || "");
+
+                 element?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
             }}>
                 {buttons.map((text)=>(
                     <a href={`#${text}`} className="" onClick={(event)=>{ console.log(event.target)}} key={text}><NavButton text={text}/></a>

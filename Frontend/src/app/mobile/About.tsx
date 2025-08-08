@@ -10,9 +10,9 @@ export default function Res() {
     return (
         <div className="w-full flex flex-col justify-items-center items-center space-y-16 mb-20">
            
-            <div className="mt-[00px] w-[65%] relative left-[20px] top-[40px] justify-items-center ">
+            <div className="mt-[00px] w-[65%] relative left-[20px] top-[40px] justify-items-center text-center">
                 <h1 className="text-[36px] text-center mb-4 my-2 font-normal font-dragon text-2xl bg-gradient-to-b from-[#5A3E17] via-[#FFF5B6] to-[#D4AF37] bg-clip-text text-transparent">ABOUT GAMBITOR</h1>
-                <p className="sm:text-[20px] text-[15px] leading-[24px] font-overpass font-medium text-justify mb-8 text-[#FAF4BE]">
+                <p className="sm:text-[20px] text-[15px] leading-[24px] font-overpass font-medium mb-8 text-[#FAF4BE] text-center">
                     GambitoR is a prestigious national-level exam tailored specifically for students from classes 9th to 12th who strive for excellence and have a passion for tackling and conquering challenges. This unique competition evaluates students' logical and analytical skills through questions designed by our student community, all within the exciting and adventurous theme of Harry Potter. Organized by the Outreach Cell of IIT Roorkee, this year marks the fourth edition of GambitoR, promising to bring out the best in each participant. Get ready to sail on this adventure and discover what you’re truly capable of!
                 </p>
             </div>
