@@ -19,7 +19,9 @@ const config: Config = {
       }
     },
     fontFamily:{
-      overpass: ["Overpass","sans-serif"]
+      overpass: ["Overpass","sans-serif"],
+        dragon: ['DragonHunter', 'sans-serif'],
+        allrounder:['Allrounder', 'sans-serif']
     }
   },
   plugins: [],

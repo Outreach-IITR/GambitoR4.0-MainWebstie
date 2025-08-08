@@ -1,10 +1,10 @@
 import Image from 'next/image'
-import fish from './assets/Fish.svg'
+import harry from './assets/aboutimg.svg'
 
 const OpenPage = () => {
   return (
-    <div className=' h-screen bg-[#E5F2FF] w-full flex flex-col justify-center items-center'>
-      <Image src={fish} alt="" className='h-[200px]' />
+    <div className=' h-screen w-full flex flex-col justify-center items-center'>
+      <Image src={harry} alt="" className='h-[400px] mx-4' />
     </div>
   )
 }

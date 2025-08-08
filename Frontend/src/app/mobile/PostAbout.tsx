@@ -9,8 +9,8 @@ function PostAbout() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className='flex flex-col h-[852px] relative bg-[#E5F2FF] z-[1]' >
-      <div className='relative z-50' style={{ 
+    <div className='flex flex-col mb-20 relative z-[1] justify-items-center' >
+      <div className='z-50 space-y-6 justify-items-center' style={{ 
         display: 'flex', 
         flexDirection: 'column', 
         alignItems: 'center', 

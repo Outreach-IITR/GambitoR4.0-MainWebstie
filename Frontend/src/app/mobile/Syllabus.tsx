@@ -7,39 +7,43 @@ import Navbar from './NavBar1.jsx';
 
 import V1 from './assets/Syllabus/v1.svg';
 import W1 from './assets/Syllabus/w1.svg';
-import Timemap from './assets/Syllabus/Timemap.svg';
+import Timemap from './assets/Syllabus/map1.svg';
 
-
+function NavButton({text}:any){
+    return (
+       
+        
+        <button id={`b${text}`}  className="transition ease-out duration-300 border-4 border-[#FFE016] rounded-full xl:w-[300px] w-[30vw] text-[20px] leading-[25px] text-[#FAF4BE] font-bold h-[60px] cursor-pointer hover:bg-[#A96104] hover:border-[#FFE016] active:bg-[#BA8136] active:border-[#FFE645]">{text}</button>
+       
+    );
+}
 export default function Syllabus() {
     const [selectedClass, setSelectedClass] = useState('XI');
 
     const showPara = (className:string) => {
         setSelectedClass(className);
     }
+    const buttons = [{class:'CLASS 9',pdf:"class9.pdf"},
+                    {class:'CLASS 10',pdf:"class10.pdf"},
+                    {class:'CLASS 11',pdf:"class11.pdf"},
+                    {class:'CLASS 12',pdf:"class12.pdf"}]
     
     return (
-        <div id='SYLLABUS' className="relative bg-[#2445B5] z-[4] pt-14 w-full text-white">
+        <div id='SYLLABUS' className="relative z-[4] pt-14 w-full text-white justify-items-center space-y-12 mb-12">
            
-            <Image src={V1} alt="" className="absolute left-0 top-[12%] w-full "/>
-            <Image src={W1} alt="" className="absolute left-[3%] top-[40%] " />
-            <div className="flex flex-col items-center">
-                <h1 className="font-cooper my-10 text-[32px] text-center text-white font-normal leading-[36.7px]" style={{fontFamily:'Cooper Black'}}>SYLLABUS</h1>
-                <div className='w-[80%]'>
-                    <div className=" w-full relative z-20 my-10  flex flex-row justify-between">
-                        <a href="class9.pdf" download>
-                        <div onClick={() => showPara('IX')} className="cursor-pointer w-[70px]  text-center h-[36px] flex flex-row justify-center items-center border-[3px] rounded-[12px] border-[#013369] hover:border-[#FFE909] hover:bg-[#FFF8DD] hover:text-[#003874]">IX</div>
-                        </a>
-                        <a href="class10.pdf" download>
-                        <div onClick={() => showPara('X')} className="cursor-pointer w-[70px]  text-center h-[36px] flex flex-row justify-center items-center border-[3px] rounded-[12px] border-[#013369] hover:border-[#FFE909] hover:bg-[#FFF8DD] hover:text-[#003874]">X</div>
-                        </a>
-                        <a href="class11.pdf" download>
-                        <div onClick={() => showPara('XI')} className="cursor-pointer w-[70px]  text-center h-[36px] flex flex-row justify-center items-center border-[3px] rounded-[12px] border-[#013369] hover:border-[#FFE909] hover:bg-[#FFF8DD] hover:text-[#003874]">XI</div>
-                        </a>
-                        <a href="class12.pdf" download>
-                        <div onClick={() => showPara('XII')} className="cursor-pointer w-[70px]  text-center h-[36px] flex flex-row justify-center items-center border-[3px] rounded-[12px] border-[#013369] hover:border-[#FFE909] hover:bg-[#FFF8DD] hover:text-[#003874]">XII</div>
-                        </a>
-                    </div>
-                </div>
+            <h1 className="text-[48px] leading-[45px] my-2 font-normal font-dragon text-2xl bg-gradient-to-b from-[#5A3E17] via-[#FFF5B6] to-[#D4AF37] bg-clip-text text-transparent">SYLLABUS</h1>
+            <div className=''>
+              <ul className="flex flex-col justify-between space-y-8">
+                {buttons.map((object, index)=>(
+                  <li key={index}> {/* Add key prop here */}
+                    <a href={object.pdf} download>
+                      <NavButton text={object.class} />
+                    </a>
+                  </li>
+                ))}
+             </ul>
+
+            </div>
 {/* 
                 <div className="font-overpass flex flex-col items-center w-[70%] absolute top-[300px] text-center text-[22px]">
                     {selectedClass === 'IX' && (
@@ -55,10 +59,12 @@ export default function Syllabus() {
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta sit corrupti earum fugiat distinctio repellendus ad facere doloribus eaque veniam nam minus ab, assumenda, iure qui facilis dolore? Sed, laudantium!</p>
                     )}
                 </div> */}
-            </div>
-            <h1 id='TIMELINE' className="font-cooper my-10 mt-20 w-full pt-14 text-[32px] text-center top-[720px] text-white font-normal leading-[36.7px]" style={{fontFamily:'Cooper Black'}}>TIMELINE MAP</h1>
+        
+            <h1 className="text-[48px] sm:text-[48px] leading-[36px] sm:leading-[45px] my-2 font-normal font-dragon text-2xl bg-gradient-to-b from-[#5A3E17] via-[#FFF5B6] to-[#D4AF37] bg-clip-text text-transparent">
+                    TIMELINE
+                </h1>
             <div  className=" w-full flex justify-center items-center">
-            <Image src={Timemap} alt="" className="h-[324.99px] my-10 w-[329px] "/>   
+            <Image src={Timemap} alt="" className="h-[500px] my-10 w-[500x] "/>   
 
             </div>
         </div>

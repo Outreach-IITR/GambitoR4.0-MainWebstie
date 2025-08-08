@@ -10,23 +10,9 @@ interface ButtongpProps {
 
 export default function Buttongp({text}: ButtongpProps) {
   return (
-    <a href={`#${text}`}>
+    <a href={`#${text}`} className="w-1/2 justify-self-center">
 
-    <button className="pointer-events-none" style={{ 
-      background: "#2445B5", 
-      border: '3px solid', 
-      width: '208px', 
-      height: '52px', 
-      borderRadius: '12px',
-      borderColor: '#003874', 
-      fontSize: '24px',
-      marginBottom:'32px',
-      color:'white',
-      fontFamily:'Cooper Black',   
-      display:'flex',
-      justifyContent:'center',
-      alignItems:'center'
-    }}
+    <button className="pointer-events-none transition ease-out duration-300 font-overpass leading-[25px] font-medium border-2 xl:w-[210px] w-3/4 text-[20px] border-[#FFE016] rounded-full text-[#FAF4BE] h-[60px] hover:bg-[#A96104] active:bg-[#A96104] p-6" 
     >
       {text.replace(/'/g, '&apos;')}
     </button>

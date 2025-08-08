@@ -16,11 +16,18 @@ import NavBar from './NavBar'
 import Footer from '../_components/Footer'
 
 import OpenPage from './OpenPage'
+import Testimonials from '../_components/Testimonials'
+import bg from './assets/fullbg.svg'
 
 const Mobile = () => {
    
   return (
-    <div >
+    <div 
+    className="bg-no-repeat bg-top bg-[length:100%_auto] overflow-x-hidden w-screen"
+          style={{
+    backgroundImage: `url(${bg.src})`,
+    backgroundSize: '100% auto',
+  }}>
       
       
       
@@ -33,9 +40,7 @@ const Mobile = () => {
       <PostAbout></PostAbout>
       
       
-      <div>
-        <Image src={bottomgp} alt="" className='-bottom-[3rem] z-[3] w-full fixed'></Image>
-      </div>
+     
       <div id="Rounds"><Rounds></Rounds></div>
       {/* <NavBar1></NavBar1> */}
       
@@ -44,8 +49,9 @@ const Mobile = () => {
       <Prize></Prize>
       
       <Syllabus></Syllabus>
-      <div className='bg-[#2445B5] relative z-20'>
-      <HomePageCarousel/>
+      <Testimonials></Testimonials>
+      <div className=' relative z-20'>
+      <HomePageCarousel></HomePageCarousel>
        <Footer></Footer>
 
       </div>

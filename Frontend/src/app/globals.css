@@ -12,15 +12,11 @@
 @tailwind components;
 @tailwind utilities;
 
-.special {
-  @apply transition-colors duration-300;
-}
-.special2 {
-  @apply bg-[#2B40B0] transition-colors duration-300;
-}
-
 .close {
   transition: all 0.5s ease;
+}
+body {
+  background-color: black;
 }
 
 .cat1 {
