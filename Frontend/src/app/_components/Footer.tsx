@@ -49,14 +49,14 @@ function Footer() {
               <a
                 href="https://www.facebook.com/Outreach-Cell-IIT-Roorkee-102873668810173"
                 target={"_blank"}
-                className="w-8 xl:w-6 hover:translate-y-[-0.1em] hover:text-blue-500"
+                className="w-8 xl:w-6 hover:translate-y-[-0.1em]"
               >
                 <Image src={fb} alt="facebook" className="w-full" />
               </a>
               <a
                 href="https://www.instagram.com/outreachiitr/"
                 target={"_blank"}
-                className="w-8 xl:w-6 hover:translate-y-[-0.1em] hover:text-blue-500  "
+                className="w-8 xl:w-6 hover:translate-y-[-0.1em] "
               >
                 <Image src={insta} alt="instagram" className="w-full" />
               </a>
@@ -67,14 +67,14 @@ function Footer() {
               <a
                 href="https://in.linkedin.com/company/outreach-cell-iit-roorkee"
                 target={"_blank"}
-                className="w-8 xl:w-6 hover:translate-y-[-0.1em] hover:text-blue-500"
+                className="w-8 xl:w-6 hover:translate-y-[-0.1em]"
               >
                 <Image src={linkedin} alt="linkedin" className="w-full" />
               </a>
               <a
                 href="https://www.youtube.com/@GambitoRIITRoorkee"
                 target={"_blank"}
-                className="w-10 xl:w-6 hover:translate-y-[-0.1em] relative top-1 hover:text-blue-500"
+                className="w-10 xl:w-6 hover:translate-y-[-0.1em] relative top-1 "
               >
                 <Image src="youtube.svg" height={100} width={100} alt="linkedin" className="w-full" />
               </a>
@@ -85,10 +85,10 @@ function Footer() {
         <div className="flex flex-row relative top-10 sm:top-0 justify-center items-center gap-6 lg:gap-[6rem] font-jost font-normal  lg:text-base leading-1.5 text-center tracking-wide text-white xl:text-left xl:text-[24px] xl:leading-normal">
           {/* column 1 */}
           <div className="flex flex-col items-start gap-y-5 xl:gap-y-3 ">
-            <Link href="/">ABOUT</Link>
-            <Link href="/">EVENTS</Link>
+            <Link href="/" className="hover:text-[#FAF4BE]">ABOUT</Link>
+            <Link href="/" className="hover:text-[#FAF4BE]">EVENTS</Link>
             <div className="relative group inline-block">
-              <Link href="tel:+918130109526" className="text-white">
+              <Link href="tel:+918130109526" className="text-white hover:text-[#FAF4BE]">
                 CONTACTS
               </Link>
              
@@ -96,38 +96,38 @@ function Footer() {
               +918130109526
               </div>
             </div>
-            <Link href="/">INITIATORS</Link>
+            <Link href="/" className="hover:text-[#FAF4BE]">INITIATORS</Link>
 
             {/* <Link href="/">INITATORS</Link> */}
           </div>
 
           {/* column 2 */}
           <div className="flex flex-col items-start gap-y-5 xl:gap-y-3 ">
-            <Link href="#SYLLABUS">RESOURCES</Link>
-            <Link href="#SYLLABUS">SYLLABUS</Link>
+            <Link href="#SYLLABUS" className="hover:text-[#FAF4BE]">RESOURCES</Link>
+            <Link href="#SYLLABUS" className="hover:text-[#FAF4BE]">SYLLABUS</Link>
             {/* <a href={mockPaper} target="_blank" className="hover:translate-y-[-0.1em] hover:text-blue-500">
               MOCK PAPERS
             </a> */}
-          <Link href="">PRACTICE PAPERS</Link>
-            <a href="FAQs.pdf" download>FAQs</a>
+          <Link href="" className="hover:text-[#FAF4BE]">PRACTICE PAPERS</Link>
+            <a href="FAQs.pdf" download className="hover:text-[#FAF4BE]">FAQs</a>
           </div>
 
           {/* column 2 */}
      
           <div className="sm:flex flex-col items-start gap-y-5  xl:gap-y-3 xl:text-[24px] hidden ">
-            <Link href="/about">FOLLOW US</Link>
+            <Link href="/about" className="hover:text-[#FAF4BE]">FOLLOW US</Link>
             <div className="flex flex-row lg:gap-x-10 gap-x-2">
               <a
                 href="https://www.facebook.com/Outreach-Cell-IIT-Roorkee-102873668810173"
                 target={"_blank"}
-                className="w-8  hover:translate-y-[-0.1em] hover:text-blue-500"
+                className="w-8  hover:translate-y-[-0.1em]"
               >
                 <Image src={fb} alt="facebook" className="w-full" />
               </a>
               <a
                 href="https://www.instagram.com/outreachiitr/"
                 target={"_blank"}
-                className="w-8  hover:translate-y-[-0.1em] hover:text-blue-500  "
+                className="w-8  hover:translate-y-[-0.1em]  "
               >
                 <Image src={insta} alt="instagram" className="w-full" />
               </a>
@@ -138,14 +138,14 @@ function Footer() {
               <a
                 href="https://in.linkedin.com/company/outreach-cell-iit-roorkee"
                 target={"_blank"}
-                className="w-8  hover:translate-y-[-0.1em] hover:text-blue-500"
+                className="w-8  hover:translate-y-[-0.1em] "
               >
                 <Image src={linkedin} alt="linkedin" className="w-full" />
               </a>
               <a
                 href="https://www.youtube.com/@GambitoRIITRoorkee"
                 target={"_blank"}
-                className="w-11 hover:translate-y-[-0.1em] hover:text-blue-500"
+                className="w-11 hover:translate-y-[-0.1em] "
               >
                 <Image src="youtube.svg" height={140} width={100} alt="linkedin" className="w-full" />
               </a>
