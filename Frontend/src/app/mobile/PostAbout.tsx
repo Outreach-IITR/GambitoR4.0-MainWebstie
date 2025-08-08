@@ -9,12 +9,13 @@ function PostAbout() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className='flex flex-col mb-20 relative z-[1] justify-items-center' >
+    <div className='flex flex-col mb-20 relative z-[1]' >
       <div className='z-50 space-y-6 justify-items-center' style={{ 
         display: 'flex', 
         flexDirection: 'column', 
         alignItems: 'center', 
-        marginTop: '10vh' 
+        margin:'60px' ,
+        marginLeft:'140px'
       }}
       onClick ={(event)=>{
         //scroll to section

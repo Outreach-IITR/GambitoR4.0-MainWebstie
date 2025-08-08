@@ -18,7 +18,7 @@ export default function Categories() {
                 </h1>
 
                 {/* Grid of Cards */}
-                <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-24 xl:gap-32 px-4 sm:px-12 md:px-24 lg:px-32">
+                <div className="relative grid grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-24 xl:gap-32 px-4 sm:px-12 md:px-24 lg:px-32">
 
                     {/* Floating Image in Center */}
                     <div className="absolute justify-self-center top-1/4">

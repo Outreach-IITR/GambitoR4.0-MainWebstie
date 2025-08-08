@@ -48,8 +48,6 @@ function Buttons({text, ico , path,onClick }:abc){
 export default function Navbar() {
     const [isTogglerVisible, setIsTogglerVisible] = useState(Toggler);
     const [modal, setModal] = useState(false);
-    const dispatch = useDispatch();
-    const router = useRouter();
     const user = useSelector(((state:RootState) => state.user.currentUser))
     console.log(user)
     const handleLogoutClick = async (e: any) => {
@@ -92,20 +90,70 @@ export default function Navbar() {
         {text:"Logout", ico:"bx bxs-bell", path:"", onClick: handleLogoutClick}, 
    
      ]
+     const { currentUser } = useSelector((state: any) => state.user);
+    console.log(currentUser)
+    const dispatch = useDispatch()
+    const router = useRouter()
+    const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
+    const handleClick = async (e: any) => {
+        try{
+            dispatch(deleteUserStart())
+            const response = axios.get('/logout');
+            console.log('User Logged Out Successfully');
+            dispatch(deleteUserSuccess());
+            console.log('User Logged Out Successfully');
+            router.push('/');
+        }catch(error)
+        {
+            deleteUserFailure(error);
+        }
+      };
     
 
     return (
             <div>
-            <div className="bg-transparent backdrop-blur-md h-[10vh] w-[100%] flex justify-between z-20 items-center pl-4 fixed top-0">
+            <div className="bg-transparent backdrop-blur-md h-[10vh] w-[100%] flex justify-between z-20 items-center pl-4 fixed top-0 p-2">
             <div>
                 <a href="/"><Image src={Logo} alt="Logo" className="h-12" /></a>
             </div>
-            <div className="flex flex-row mr-6 mt-1 relative z-[50]">
-                
-                    <Image  src={Box} alt="Box" className="mr-1 h-16 w-16 relative z-50" onClick={toggleModal} />
-                
-                {user && <Image src={isTogglerVisible} alt="Toggle Icon" onClick={toggleIcons} className="relative w-8 z-50" />}
-            </div>
+            <div className="flex space-x-6 mr-2">
+            {currentUser?(<a href="/dashboard">
+                    <button className="text-[20px] font-overpass leading-[25px] font-medium  border border-slate-200 rounded-xl bg-white w-[120px]  text-black  h-[45px] active:bg-slate-200 cursor-pointer">Dashboard</button>
+                </a>):(null)}
+                <a href="/results">
+                <button className="transition ease-out duration-300 text-[16px] font-overpass leading-[25px] font-semibold rounded-2xl bg-[#C49B44] w-[70px]  text-[#3D1800]  p-2 h-[45px] hover:bg-[#C49B44] hover:shadow-[-1px_0px_4px_0px_rgba(255,180,0,0.89)] active:bg-[#BA913B] active:shadow-[-1px_0px_4px_0px_rgba(224,158,0,0.89)] cursor-pointer">Results</button>
+                </a>
+                {/* <a href="/signup">
+                <button className="text-[20px] font-overpass leading-[25px] font-medium  border border-blue-500 rounded-xl bg-white w-[100px]  text-black  h-[45px] active:bg-slate-200 cursor-pointer">Sign up</button>
+                </a> */}
+                {!currentUser?(<a href="/login">
+                <button className="transition ease-out duration-300 p-2 text-[16px] font-overpass leading-[25px] font-semibold rounded-2xl bg-[#C49B44] w-[70px]  text-[#3D1800]  h-[45px] hover:bg-[#C49B44] hover:shadow-[-1px_0px_4px_0px_rgba(255,180,0,0.89)] active:bg-[#BA913B] active:shadow-[-1px_0px_4px_0px_rgba(224,158,0,0.89)] cursor-pointer">Log in</button>
+                </a>):(<a href="#">
+                <button className="transition ease-out duration-300 p-2 text-[16px] font-overpass leading-[25px] font-semibold rounded-2xl bg-[#C49B44] w-[70px]  text-[#3D1800]  h-[45px] hover:bg-[#C49B44] hover:shadow-[-1px_0px_4px_0px_rgba(255,180,0,0.89)] active:bg-[#BA913B] active:shadow-[-1px_0px_4px_0px_rgba(224,158,0,0.89)] cursor-pointer"  onClick={() => setShowLogoutConfirm(true)}>Logout</button>
+                {showLogoutConfirm && (
+                            <div className="fixed inset-x-0 top-0 mt-16 bg-black bg-opacity-50 flex justify-center items-start ">
+                                <div className="bg-gray p-6 rounded-lg">
+                                    <p className="mb-4">Are you sure you want to log out?</p>
+                                    <div className="flex justify-end space-x-4">
+                                        <button
+                                            className="bg-gray-300 text-black px-4 py-2 rounded-lg"
+                                            onClick={() => setShowLogoutConfirm(false)}
+                                        >
+                                            Cancel
+                                        </button>
+                                        <button
+                                            className="bg-red-500 text-white px-4 py-2 rounded-lg"
+                                            onClick={handleClick}
+                                        >
+                                            Logout
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                </a>)}
+
+           </div>
             </div>
             {modal &&  
             <div className='fixed z-50 top-0 w-[100%] h-[100vh] bg-transparent backdrop-blur-sm  flex justify-center items-center flex-col' onClick={toggleModal}>

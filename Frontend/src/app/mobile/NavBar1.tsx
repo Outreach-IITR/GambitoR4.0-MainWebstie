@@ -21,12 +21,7 @@ export default function Navbar() {
             <div>
                 <Image src={Logo} alt="Logo" className="h-12" />
             </div>
-            <div className="flex flex-row mr-6 mt-1">
-                <a href="/">
-                    <Image src={Box} alt="Box" className="h-16 w-16 mr-[10px]" />
-                </a>
-                <Image src={isTogglerVisible} alt="Toggle Icon" onClick={toggleIcons} className=" w-8 mr-[10px]" />
-            </div>
+           
         </div>
         </div>
     );
