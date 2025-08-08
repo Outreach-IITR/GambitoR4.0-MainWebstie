@@ -13,8 +13,8 @@ const Categories = () => {
 
     return (
         <div className="text-white relative z-10 flex flex-col py-[10vw] space-y-20 max-w-[1380px] mx-auto" id="CATEGORIES">
-            <div className="mb-12 text-center space-y-12">
-                <h1 className="text-[36px] leading-[45px] my-2 font-normal font-dragon text-2xl bg-gradient-to-b from-[#5A3E17] via-[#FFF5B6] to-[#D4AF37] bg-clip-text text-transparent">Categories</h1>
+            <div className="mb-12 text-center space-y-14">
+                <h1 className="text-[52px] leading-[45px] my-2 font-normal font-dragon text-4xl bg-gradient-to-b from-[#5A3E17] via-[#FFF5B6] to-[#D4AF37] bg-clip-text text-transparent">Categories</h1>
                 <div className="relative grid xl:grid-cols-2 xl:grid-rows-2 gap-32 mx-[20rem]" 
                 // onClick ={(event)=>{
                 // //scroll to section

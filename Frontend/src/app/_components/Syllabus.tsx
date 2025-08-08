@@ -24,7 +24,7 @@ export default function Syllabus(){
     
     return(
         <section className="text-white relative z-[1] my-[3rem] mb-[10vw] flex flex-col text-center max-w-[1380px] mx-auto space-y-12" id="SYLLABUS">
-          <h1 className="text-[36px] leading-[45px] my-2 font-normal font-dragon text-2xl bg-gradient-to-b from-[#5A3E17] via-[#FFF5B6] to-[#D4AF37] bg-clip-text text-transparent">SYLLABUS</h1>
+          <h1 className="text-[52px] leading-[45px] my-2 font-normal font-dragon text-2xl bg-gradient-to-b from-[#5A3E17] via-[#FFF5B6] to-[#D4AF37] bg-clip-text text-transparent">SYLLABUS</h1>
             <div>
               <ul className="flex flex-row justify-between">
                 {buttons.map((object, index)=>(

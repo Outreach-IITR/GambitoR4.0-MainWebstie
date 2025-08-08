@@ -14,11 +14,11 @@ export default function RoundDescription() {
     
     
     return (
-      <section  id="ROUNDS" className="relative z-[1] mt-[12rem] max-w-[1380px] mx-auto ">
+      <section  id="ROUNDS" className="relative z-[1] mt-[12rem] max-w-[1380px] mx-auto mb-[20rem] space-y-12">
 
         <div className='flex justify-center'>
 
-         <h1 className="text-[36px] leading-[45px] my-2 font-normal font-dragon text-4xl bg-gradient-to-b from-[#5A3E17] via-[#FFF5B6] to-[#D4AF37] bg-clip-text text-transparent">ROUNDS</h1>
+         <h1 className="text-[52px] leading-[45px] my-2 font-normal font-dragon text-4xl bg-gradient-to-b from-[#5A3E17] via-[#FFF5B6] to-[#D4AF37] bg-clip-text text-transparent">ROUNDS</h1>
         </div>
         <div>
           <div className="flex space-x-4">
@@ -44,9 +44,8 @@ export default function RoundDescription() {
           </div>
           </div>
         </div>
-        <div className="flex justify-between w-1/2">
-
-          <div className="w-full lg:w-1/1 justify-items-center space-y-1 lg:mt-[28rem]">
+        <div className="relative flex-col justify-between w-1/2 ">
+          <div className="absolute w-full lg:w-1/1 justify-items-center space-y-1 mt-[14rem]">
             <div className="flex">
               <h1 className="text-[36px] font-medium leading-[45px] font-dragon tracking-wider text-[#FFB400]">PINNACLE</h1>
             </div>

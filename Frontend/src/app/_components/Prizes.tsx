@@ -8,9 +8,9 @@ import thirdPrize from "../../../public/thirdPrize.svg";
 function Prizes(){
 
     return (
-        <section id='PRIZES' className=" relative z-[2] flex flex-col items-center justify-center py-[5vw] space-y-12">
-<h1 className="text-[36px] leading-[45px] my-2 font-normal font-dragon text-2xl bg-gradient-to-b from-[#5A3E17] via-[#FFF5B6] to-[#D4AF37] bg-clip-text text-transparent leading-60px">PRIZES</h1>
-            <div className="flex space-x-14 justify-items-center">
+        <section  className=" relative z-[2] flex flex-col items-center justify-items-center py-[5vw] space-y-12 text-center">
+<h1 className="text-[52px] leading-[45px] my-2 font-normal font-dragon text-2xl bg-gradient-to-b from-[#5A3E17] via-[#FFF5B6] to-[#D4AF37] bg-clip-text text-transparent leading-60px justify-self-start">PRIZES</h1>
+            <div className="flex space-x-14 justify-items-center mr-12">
                  <div className="mt-20">
                     <a  target="_blank" rel="noreferrer" className="flex flex-col items-center">
                         <Image alt="img" src={secondPrize} className="w-[18vw] "/>
