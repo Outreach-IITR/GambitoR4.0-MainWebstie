@@ -66,16 +66,15 @@ const Testimonials: React.FC = () => {
           }
 
           return (
-            <div className="justify-items-center items-center">
-            <img
-              key={idx}
-              src={slide.src}
-              alt={`Testimonial ${idx + 1}`}
-              className={`absolute top-0 w-[320px] h-[360px] object-contain rounded-xl
-                transform -translate-x-1/2
-                ${translate} ${scale} ${opacity} ${zIndex}
-                transition-all duration-700 ease-in-out`}
-            />
+            <div key={slide.src ?? idx} className="justify-items-center items-center">
+              <img
+                src={slide.src}
+                alt={`Testimonial ${idx + 1}`}
+                className={`absolute top-0 w-[320px] h-[360px] object-contain rounded-xl
+                  transform -translate-x-1/2
+                  ${translate} ${scale} ${opacity} ${zIndex}
+                  transition-all duration-700 ease-in-out`}
+              />
             </div>
           );
         })}
