@@ -75,13 +75,14 @@ const PersonalInfoComponent = () => {
   const phoneNumber = useSelector((state: RootState) => state.signUp.phoneNumber);
   const loading = useSelector((state: RootState) => state.signUp.loading);
   const [response, setResponse] = useState("");
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value, files } = e.target;
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;  // no files here for select
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
   };
+
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setPhoneNumber(e.target.value));
@@ -259,21 +260,29 @@ const PersonalInfoComponent = () => {
                 </div>
                 <div className="w-1/3 rmd:w-2/5 px-2 mb-4">
                   <label
-                    htmlFor="class"
+                    htmlFor="category"
                     className="block text-black mb-1 text-sm transition-colors duration-200 ease-in-out peer-focus:text-[#ba8136]"
                   >
                     Class
                   </label>
-                  <input
-                    type="text"
+                  <select
                     id="category"
                     name="category"
                     value={formData.category}
                     onChange={handleChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded peer"
-                  />
+                  >
+                    <option value="" disabled>
+                      Select a class
+                    </option>
+                    <option value="ARETEOX">ARETEOX</option>
+                    <option value="METIOX">METIOX</option>
+                    <option value="APOLLOX">APOLLOX</option>
+                    <option value="ATHENOX">ATHENOX</option>
+                  </select>
                   <ErrorBox message={errors?.category} />
                 </div>
+
                 <div className="w-1/3 rmd:w-3/5 px-2 mb-4">
                   <label
                     htmlFor="schoolName"
