@@ -1,5 +1,6 @@
 "use client";
 import Image from 'next/image'
+import Animations from './assets/AnimatedButton'
 //import './Res.css'
 //import Navbar from './NavBar1'
 //import CatDiv from "./CatDiv";
@@ -29,16 +30,23 @@ export default function Categories() {
                    </div>
 
 
-                    
-                    <div className="bg-[#701100] bg-no-repeat bg-center border-4 border-[#F3E193] rounded-3xl"
+                    <Animations
+                    hoverEffect={{scale:1.025}}
+                    tapEffect={{scale:1.025}}
+                    >
+                        <div className="bg-[#701100] bg-no-repeat bg-center border-4 border-[#F3E193] rounded-3xl"
                         style={{ backgroundImage: "url('/IXsvg.svg')", backgroundSize: '50%' }}>
                         <div className="px-6 py-8 sm:p-10 md:p-12 lg:p-16">
                             <h2 className="mb-2 text-xl sm:text-2xl md:text-3xl font-semibold">CLASS IX</h2>
                             <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold">ARETEOX</h3>
                         </div>
                     </div>
+                    </Animations>
+                    
 
-                  
+                  <Animations
+                  hoverEffect={{scale:1.025}}
+                    tapEffect={{scale:1.025}}>
                     <div className="bg-[#3D8B57] bg-no-repeat bg-center border-4 border-[#F3E193] rounded-3xl"
                         style={{ backgroundImage: "url('/X.svg')", backgroundSize: '50%' }}>
                         <div className="px-6 py-8 sm:p-10 md:p-12 lg:p-16">
@@ -46,8 +54,12 @@ export default function Categories() {
                             <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold">METIOX</h3>
                         </div>
                     </div>
+                  </Animations>
+                    
 
-                   
+                   <Animations
+                   hoverEffect={{scale:1.025}}
+                    tapEffect={{scale:1.025}}>
                     <div className="bg-[#FF7C04] bg-no-repeat bg-center border-4 border-[#F3E193] rounded-3xl"
                         style={{ backgroundImage: "url('/XI.svg')", backgroundSize: '50%' }}>
                         <div className="px-6 py-8 sm:p-10 md:p-12 lg:p-16">
@@ -55,15 +67,23 @@ export default function Categories() {
                             <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold">APOLLOX</h3>
                         </div>
                     </div>
-
+                   </Animations>
                     
-                    <div className="bg-[#06345B] bg-no-repeat bg-center border-4 border-[#F3E193] rounded-3xl"
+
+                    <Animations
+                    hoverEffect={{scale:1.025
+                        
+                    }}
+                    tapEffect={{scale:1.025}}>
+                        <div className="bg-[#06345B] bg-no-repeat bg-center border-4 border-[#F3E193] rounded-3xl"
                         style={{ backgroundImage: "url('/XII.svg')", backgroundSize: '50%' }}>
                         <div className="px-6 py-8 sm:p-10 md:p-12 lg:p-16">
                             <h2 className="mb-2 text-xl sm:text-2xl md:text-3xl font-semibold">CLASS XII</h2>
                             <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold">ATHENOX</h3>
                         </div>
                     </div>
+                    </Animations>
+                    
 
                 </div>
             </div>

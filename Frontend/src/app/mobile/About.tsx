@@ -1,6 +1,7 @@
 "use client";
 import About from './assets/about-foot.svg'
 import ArtBoard from './assets/ARTBOARD_1.svg'
+import Animations from './assets/AnimatedButton';
 // import Logo from './assets/logo.svg'
 
 import Navbar from './NavBar'
@@ -19,7 +20,10 @@ export default function Res() {
 
             <div className="flex justify-center items-center w-full ">
                 <a href="/signup">
-                <button className="mt-4 transition ease-out duration-300 bg-[#C9A454] border-4 border-[#C37227] rounded-full xl:w-[261px] w-full text-[20px] leading-[25px] text-[#A50034] font-bold h-[60px] cursor-pointer hover:bg-[#C49B44] hover:border-[#BC6E26] hover:shadow-[-1px_1px_4px_5px_rgba(188,110,38,0.30)] active:bg-[#B28B38] active:shadow-[-1px_1px_4px_5px_rgba(188,110,38,0.30)] active:border-[#AA6322] font-dragon tracking-wider p-4	">REGISTER NOW !</button>
+                <Animations>
+                    <button className="mt-4 transition ease-out duration-300 bg-[#C9A454] border-4 border-[#C37227] rounded-full xl:w-[261px] w-full text-[20px] leading-[25px] text-[#A50034] font-bold h-[60px] cursor-pointer hover:bg-[#C49B44] hover:border-[#BC6E26] hover:shadow-[-1px_1px_4px_5px_rgba(188,110,38,0.30)] active:bg-[#B28B38] active:shadow-[-1px_1px_4px_5px_rgba(188,110,38,0.30)] active:border-[#AA6322] font-dragon tracking-wider p-4	">REGISTER NOW !</button>
+                </Animations>
+                
                 </a>
 
             </div>

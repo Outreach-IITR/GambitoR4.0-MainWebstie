@@ -38,8 +38,8 @@ export default function RoundDescription() {
             The top 20 performers from classes 9th and 10th, along with the top 
             20 performers from class 11th and the top 20 performers from class 
             12th, will be provided with the golden opportunity of visiting IIT
-            Roorkee for the next round, Pinnacle, along with the chances of 
-            winning exciting prizes and certificates.
+            Roorkee for the next round, Pinnacle, along with the <span className="text-[#FFB400]">chances of 
+            winning exciting prizes and certificates.</span>
             </p>
           </div>
           </div>
@@ -59,8 +59,8 @@ export default function RoundDescription() {
             it'll be a glorious and exhilarating experience. In this round, you 
             will need to work your wits to the end while also having fun while 
             exploring the ins and outs of the campus. The winners of the events 
-            will be awarded cash rewards and certificates of excellence, along with 
-            several exciting prizes in store for them.
+            will be <span className="text-[#FFB400]">awarded cash rewards and certificates of excellence, along with 
+            several exciting prizes in store for them.</span>
             </p>
           </div>
           </div>

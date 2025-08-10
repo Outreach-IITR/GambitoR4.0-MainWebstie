@@ -11,6 +11,7 @@ import { useDispatch,useSelector} from "react-redux";
 import axios from "../https/api"
 import {useRouter} from 'next/navigation'
 import { deleteUserFailure,deleteUserStart,deleteUserSuccess } from "@/redux/user/userSlice";
+import Animations from './assets/AnimatedButton';
 
 interface UserState {
   currentUser: any;
@@ -118,18 +119,30 @@ export default function Navbar() {
             </div>
             <div className="flex space-x-6 mr-2">
             {currentUser?(<a href="/dashboard">
+                <Animations>
                     <button className="text-[20px] font-overpass leading-[25px] font-medium  border border-slate-200 rounded-xl bg-white w-[120px]  text-black  h-[45px] active:bg-slate-200 cursor-pointer">Dashboard</button>
+                </Animations>
+                    
                 </a>):(null)}
                 <a href="/results">
-                <button className="transition ease-out duration-300 text-[16px] font-overpass leading-[25px] font-semibold rounded-2xl bg-[#C49B44] w-[70px]  text-[#3D1800]  p-2 h-[45px] hover:bg-[#C49B44] hover:shadow-[-1px_0px_4px_0px_rgba(255,180,0,0.89)] active:bg-[#BA913B] active:shadow-[-1px_0px_4px_0px_rgba(224,158,0,0.89)] cursor-pointer">Results</button>
+                <Animations>
+                    <button className="transition ease-out duration-300 text-[16px] font-overpass leading-[25px] font-semibold rounded-2xl bg-[#C49B44] w-[70px]  text-[#3D1800]  p-2 h-[45px] hover:bg-[#C49B44] hover:shadow-[-1px_0px_4px_0px_rgba(255,180,0,0.89)] active:bg-[#BA913B] active:shadow-[-1px_0px_4px_0px_rgba(224,158,0,0.89)] cursor-pointer">Results</button>
+                </Animations>
+                
                 </a>
                 {/* <a href="/signup">
                 <button className="text-[20px] font-overpass leading-[25px] font-medium  border border-blue-500 rounded-xl bg-white w-[100px]  text-black  h-[45px] active:bg-slate-200 cursor-pointer">Sign up</button>
                 </a> */}
                 {!currentUser?(<a href="/login">
-                <button className="transition ease-out duration-300 p-2 text-[16px] font-overpass leading-[25px] font-semibold rounded-2xl bg-[#C49B44] w-[70px]  text-[#3D1800]  h-[45px] hover:bg-[#C49B44] hover:shadow-[-1px_0px_4px_0px_rgba(255,180,0,0.89)] active:bg-[#BA913B] active:shadow-[-1px_0px_4px_0px_rgba(224,158,0,0.89)] cursor-pointer">Log in</button>
+                <Animations>
+                    <button className="transition ease-out duration-300 p-2 text-[16px] font-overpass leading-[25px] font-semibold rounded-2xl bg-[#C49B44] w-[70px]  text-[#3D1800]  h-[45px] hover:bg-[#C49B44] hover:shadow-[-1px_0px_4px_0px_rgba(255,180,0,0.89)] active:bg-[#BA913B] active:shadow-[-1px_0px_4px_0px_rgba(224,158,0,0.89)] cursor-pointer">Log in</button>
+                </Animations>
+                
                 </a>):(<a href="#">
-                <button className="transition ease-out duration-300 p-2 text-[16px] font-overpass leading-[25px] font-semibold rounded-2xl bg-[#C49B44] w-[70px]  text-[#3D1800]  h-[45px] hover:bg-[#C49B44] hover:shadow-[-1px_0px_4px_0px_rgba(255,180,0,0.89)] active:bg-[#BA913B] active:shadow-[-1px_0px_4px_0px_rgba(224,158,0,0.89)] cursor-pointer"  onClick={() => setShowLogoutConfirm(true)}>Logout</button>
+                    <Animations>
+                        <button className="transition ease-out duration-300 p-2 text-[16px] font-overpass leading-[25px] font-semibold rounded-2xl bg-[#C49B44] w-[70px]  text-[#3D1800]  h-[45px] hover:bg-[#C49B44] hover:shadow-[-1px_0px_4px_0px_rgba(255,180,0,0.89)] active:bg-[#BA913B] active:shadow-[-1px_0px_4px_0px_rgba(224,158,0,0.89)] cursor-pointer"  onClick={() => setShowLogoutConfirm(true)}>Logout</button>
+                    </Animations>
+                
                 {showLogoutConfirm && (
                             <div className="fixed inset-x-0 top-0 mt-16 bg-black bg-opacity-50 flex justify-center items-start ">
                                 <div className="bg-gray p-6 rounded-lg">

@@ -13,6 +13,7 @@ import Timeline from "./_components/Timeline";
 import { useMediaQuery } from "react-responsive";
 import Mobile from "./mobile/Mobile";
 import Testimonials from "./_components/Testimonials";
+import ScrollFade from "./_components/assets/ScrollFade";
 
 export default function Home() {
   let backgroundImageStyle = {
@@ -41,18 +42,43 @@ export default function Home() {
         >
           
           <div className="">
-            <Header />
-            <AboutSection />
-            <NavButtons />
-            <RoundDescription />
-            <Categories />
+            <ScrollFade>
+              <Header />
+            </ScrollFade>
+            <ScrollFade>
+              <AboutSection />
+            </ScrollFade>
+            <ScrollFade>
+              <NavButtons />
+            </ScrollFade>
+            <ScrollFade>
+              <RoundDescription />
+            </ScrollFade>
+            <ScrollFade>
+               <Categories />
+            </ScrollFade>
+           <ScrollFade>
             <Syllabus />
-            <Prizes />
-            <Timeline />
-            <Testimonials />
-            <HomePageCarousel />
+           </ScrollFade>
+            <ScrollFade>
+              <Prizes />
+            </ScrollFade>
+            <ScrollFade>
+              <Timeline />
+            </ScrollFade>
+            <ScrollFade>
+              <Testimonials />
+            </ScrollFade>
+            
+            <ScrollFade>
+              <HomePageCarousel />
+            </ScrollFade>
+            
           </div>
-          <Footer />
+          <ScrollFade>
+            <Footer />
+          </ScrollFade>
+          
         </div>
       )}
     </div>
