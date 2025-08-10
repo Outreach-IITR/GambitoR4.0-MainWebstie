@@ -75,7 +75,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "/api/v1/auth/google/callback",
+      callbackURL: "https://gambitor.iitr.ac.in/api/v1/auth/google/callback",
       passReqToCallback: true, // Pass request to callback
     },
     async (req, accessToken, refreshToken, profile, done) => {
