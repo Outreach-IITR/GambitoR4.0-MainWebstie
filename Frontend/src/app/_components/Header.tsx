@@ -5,6 +5,7 @@ import { useState } from "react";
 import axios from "../https/api"
 import {useRouter} from 'next/navigation'
 import { deleteUserFailure,deleteUserStart,deleteUserSuccess } from "@/redux/user/userSlice";
+import {motion} from 'motion/react'
 
 interface UserState {
     currentUser: any;

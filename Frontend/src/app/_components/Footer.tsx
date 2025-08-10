@@ -8,6 +8,7 @@ import twitter from "./assets/twitter.png";
 import logo from "./assets/footerImg.png";
 import Link from "next/link";
 import 'boxicons/css/boxicons.min.css';
+import {motion} from 'motion/react'
 
 // import mockPaper from "./assets/MOCKTEST.pdf";
 
@@ -122,14 +123,26 @@ function Footer() {
                 target={"_blank"}
                 className="w-8  hover:translate-y-[-0.1em]"
               >
+                <motion.div
+                 whileTap={{ scale: 0.95 }}
+                 whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}>
                 <Image src={fb} alt="facebook" className="w-full" />
+                </motion.div>
+                
               </a>
               <a
                 href="https://www.instagram.com/outreachiitr/"
                 target={"_blank"}
                 className="w-8  hover:translate-y-[-0.1em]  "
               >
-                <Image src={insta} alt="instagram" className="w-full" />
+                <motion.div
+                 whileTap={{ scale: 0.95 }}
+                 whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}>
+                  <Image src={insta} alt="instagram" className="w-full" />
+                </motion.div>
+                
               </a>
               {/* <a href="/about"  className="w-8xl:w-6 hover:translate-y-[-0.1em] hover:text-blue-500">
                 <img src={twitter} alt="twitter"className="w-full" />
@@ -140,14 +153,26 @@ function Footer() {
                 target={"_blank"}
                 className="w-8  hover:translate-y-[-0.1em] "
               >
-                <Image src={linkedin} alt="linkedin" className="w-full" />
+                 <motion.div
+                 whileTap={{ scale: 0.95 }}
+                 whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}>
+                  <Image src={linkedin} alt="linkedin" className="w-full" />
+                </motion.div>
+                
               </a>
               <a
                 href="https://www.youtube.com/@GambitoRIITRoorkee"
                 target={"_blank"}
                 className="w-11 hover:translate-y-[-0.1em] "
               >
-                <Image src="youtube.svg" height={140} width={100} alt="linkedin" className="w-full" />
+                <motion.div
+                 whileTap={{ scale: 0.95 }}
+                 whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}>
+                    <Image src="youtube.svg" height={140} width={100} alt="linkedin" className="w-full"/>
+                </motion.div>
+              
               </a>
             </div>
           </div>

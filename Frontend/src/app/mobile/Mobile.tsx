@@ -19,6 +19,7 @@ import Footer from '../_components/Footer'
 import OpenPage from './OpenPage'
 import Testimonials from '../_components/Testimonials'
 import bg from './assets/fullbg.svg'
+import ScrollFade from './assets/ScrollFade'  
 
 const Mobile = () => {
    
@@ -33,30 +34,32 @@ const Mobile = () => {
       
       
       
-
-      <OpenPage></OpenPage>
+     <ScrollFade><OpenPage></OpenPage></ScrollFade>
       
-      <About></About>
+      <ScrollFade><About></About></ScrollFade>
       
-      <PostAbout></PostAbout>
+      <ScrollFade><PostAbout></PostAbout></ScrollFade>
       
       
+      
+     <ScrollFade> <div id="Rounds"><Rounds></Rounds></div></ScrollFade>
      
-      <div id="Rounds"><Rounds></Rounds></div>
       {/* <NavBar1></NavBar1> */}
+      <ScrollFade><Categories></Categories></ScrollFade>
+      <ScrollFade><Syllabus></Syllabus></ScrollFade>
+       <ScrollFade><Prize></Prize></ScrollFade>
+      <ScrollFade><Timeline></Timeline></ScrollFade>
       
-      <Categories></Categories>
-       <Syllabus></Syllabus>
-      <Prize></Prize>
-      <Timeline></Timeline>
-     
-      <Testimonials></Testimonials>
+     <ScrollFade><Testimonials></Testimonials></ScrollFade>
+      
       <div className=' relative z-20'>
-      <HomePageCarousel></HomePageCarousel>
-       <Footer></Footer>
+        <ScrollFade> <HomePageCarousel></HomePageCarousel></ScrollFade>
+     <ScrollFade><Footer></Footer></ScrollFade>
+       
 
       </div>
-      <NavBar></NavBar>
+    <NavBar></NavBar>
+      
 
       
       
