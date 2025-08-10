@@ -1,7 +1,4 @@
 import Image from "next/image";
-
-
-
 export default function AboutSection(){
     return(
         <section id="ABOUT" className="flex flex-col lg:justify-between lg:text-black text-white lg:flex-row relative z-[1] max-w-[1380px] mx-auto">
