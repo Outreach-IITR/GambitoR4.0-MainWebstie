@@ -152,7 +152,7 @@ class AuthController {
         to: user.email,
         subject: "Registration for GambitoR Successful.",
         text: `Hello ${req.body.name}, \n
-        Team GambitoR is delighted to inform you that you have successfully registered for GambitoR 3.0! \n  
+        Team GambitoR is delighted to inform you that you have successfully registered for GambitoR 4.0! \n  
         These are the credentials you have entered.
         Mobile Number: ${req.body.contactNumber} 
         Email: ${user.email} 
@@ -212,7 +212,7 @@ class AuthController {
         from: process.env.your_gmail,
         to: email,
         subject: "Email confirmation",
-        text: `Thank you for registering for GambitoR 3.0 .Please use the code ${otpCode} to verify your email and proceed with the registration`,
+        text: `Thank you for registering for GambitoR 4.0 .Please use the code ${otpCode} to verify your email and proceed with the registration`,
       };
       mailService.sendMail(mailOptions, function (err) {
         if (err) {
