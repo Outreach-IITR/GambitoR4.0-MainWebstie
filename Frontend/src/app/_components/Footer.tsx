@@ -89,15 +89,24 @@ function Footer() {
             <Link href="/" className="hover:text-[#FAF4BE]">ABOUT</Link>
             <Link href="/" className="hover:text-[#FAF4BE]">EVENTS</Link>
             <div className="relative group inline-block">
-              <Link href="tel:+918130109526" className="text-white hover:text-[#FAF4BE]">
+              <div className="text-white hover:text-[#FAF4BE]">
                 CONTACTS
-              </Link>
-             
-              <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-white text-lg font-semibold p-2 rounded-md shadow-lg rmd:text-sm">
-              +918130109526
+              </div>
+
+              {/* Dropdown */}
+              <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-white text-lg font-semibold p-2 rounded-md shadow-lg rmd:text-sm space-y-2">
+                <a href="tel:+919147050034" className="block hover:text-[#FAF4BE]">
+                  Pratham Jana : +91 9147050034
+                </a>
+                <a href="tel:+918950297425" className="block hover:text-[#FAF4BE]">
+                  Niviti Sharma : +91 8950297425
+                </a>
+                <a href="tel:+917906228743" className="block hover:text-[#FAF4BE]">
+                  Dhruv Jyot Singh : +91 7906228743
+                </a>
               </div>
             </div>
-            <Link href="/" className="hover:text-[#FAF4BE]">INITIATORS</Link>
+            {/* <Link href="/" className="hover:text-[#FAF4BE]">INITIATORS</Link> */}
 
             {/* <Link href="/">INITATORS</Link> */}
           </div>
@@ -110,7 +119,7 @@ function Footer() {
               MOCK PAPERS
             </a> */}
           <Link href="" className="hover:text-[#FAF4BE]">PRACTICE PAPERS</Link>
-            <a href="FAQs.pdf" download className="hover:text-[#FAF4BE]">FAQs</a>
+            {/* <a href="FAQs.pdf" download className="hover:text-[#FAF4BE]">FAQs</a> */}
           </div>
 
           {/* column 2 */}

@@ -42,13 +42,13 @@ export default function Header(){
             {currentUser?(<a href="/dashboard">
                     <button className="text-[20px] font-overpass leading-[25px] font-medium  border border-slate-200 rounded-xl bg-white w-[120px]  text-black  h-[45px] active:bg-slate-200 cursor-pointer">Dashboard</button>
                 </a>):(null)}
-                <a href="/results">
+                {/* <a href="/results">
                 <button className="transition ease-out duration-300 text-[20px] font-overpass leading-[25px] font-semibold rounded-2xl bg-[#C49B44] w-[100px]  text-[#3D1800]  h-[45px] hover:bg-[#C49B44] hover:shadow-[-1px_0px_4px_0px_rgba(255,180,0,0.89)] active:bg-[#BA913B] active:shadow-[-1px_0px_4px_0px_rgba(224,158,0,0.89)] cursor-pointer">Results</button>
-                </a>
+                </a> */}
                 {/* <a href="/signup">
                 <button className="text-[20px] font-overpass leading-[25px] font-medium  border border-blue-500 rounded-xl bg-white w-[100px]  text-black  h-[45px] active:bg-slate-200 cursor-pointer">Sign up</button>
                 </a> */}
-                {!currentUser?(<a href="/login">
+                {/* {!currentUser?(<a href="/login">
                 <Animations>
                     <button className="transition ease-out duration-300 text-[20px] font-overpass leading-[25px] font-semibold rounded-2xl bg-[#C49B44] w-[100px]  text-[#3D1800]  h-[45px] hover:bg-[#C49B44] hover:shadow-[-1px_0px_4px_0px_rgba(255,180,0,0.89)] active:bg-[#BA913B] active:shadow-[-1px_0px_4px_0px_rgba(224,158,0,0.89)] cursor-pointer">Log in</button>
                 </Animations>
@@ -79,7 +79,7 @@ export default function Header(){
                                 </div>
                             </div>
                         )}
-                </a>)}
+                </a>)} */}
 
            </div>
          
