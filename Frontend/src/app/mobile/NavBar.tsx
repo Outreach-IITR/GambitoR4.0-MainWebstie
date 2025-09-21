@@ -124,16 +124,16 @@ export default function Navbar() {
                 </Animations>
                     
                 </a>):(null)}
-                <a href="/results">
+                {/* <a href="/results">
                 <Animations>
                     <button className="transition ease-out duration-300 text-[16px] font-overpass leading-[25px] font-semibold rounded-2xl bg-[#C49B44] w-[70px]  text-[#3D1800]  p-2 h-[45px] hover:bg-[#C49B44] hover:shadow-[-1px_0px_4px_0px_rgba(255,180,0,0.89)] active:bg-[#BA913B] active:shadow-[-1px_0px_4px_0px_rgba(224,158,0,0.89)] cursor-pointer">Results</button>
                 </Animations>
                 
-                </a>
+                </a> */}
                 {/* <a href="/signup">
                 <button className="text-[20px] font-overpass leading-[25px] font-medium  border border-blue-500 rounded-xl bg-white w-[100px]  text-black  h-[45px] active:bg-slate-200 cursor-pointer">Sign up</button>
                 </a> */}
-                {!currentUser?(<a href="/login">
+                {/* {!currentUser?(<a href="/login">
                 <Animations>
                     <button className="transition ease-out duration-300 p-2 text-[16px] font-overpass leading-[25px] font-semibold rounded-2xl bg-[#C49B44] w-[70px]  text-[#3D1800]  h-[45px] hover:bg-[#C49B44] hover:shadow-[-1px_0px_4px_0px_rgba(255,180,0,0.89)] active:bg-[#BA913B] active:shadow-[-1px_0px_4px_0px_rgba(224,158,0,0.89)] cursor-pointer">Log in</button>
                 </Animations>
@@ -164,19 +164,19 @@ export default function Navbar() {
                                 </div>
                             </div>
                         )}
-                </a>)}
+                </a>)} */}
 
            </div>
             </div>
             {modal &&  
             <div className='fixed z-50 top-0 w-[100%] h-[100vh] bg-transparent backdrop-blur-sm  flex justify-center items-center flex-col' onClick={toggleModal}>
                 <div className="max-w-[360px] h-[370px] p-[2rem] flex flex-col justify-center items-center space-y-5" style={backgroundImageStyle} onClick={childClick}>
-                    <h1 style={{fontFamily:'Cooper Black'}} className='text-[32px] leading-[37px] text-[#4C2D04] font-normal'>Results are Out !!</h1>
+                    {/* <h1 style={{fontFamily:'Cooper Black'}} className='text-[32px] leading-[37px] text-[#4C2D04] font-normal'>Results are Out !!</h1>
                     <p className='text-center font-overpass font-normal leading-[25.32px] text-[20px]'></p>
                     <a href="/results">
                     <button className="w-[144px] h-[36px] rounded-[12px] bg-[#4C2D04] text-[20px] leading-[23px] text-[#FEFEFE] text-center " style={{fontFamily:'Cooper Black'}}>Results</button>
                     </a>
-                    <p className='font-overpass font-normal text-lg leading-[28px] text-white text-center'><span className='text-[#4C2D04]'></span><a href="/login" className='cursor-pointer'> Click here to Login</a> </p>
+                    <p className='font-overpass font-normal text-lg leading-[28px] text-white text-center'><span className='text-[#4C2D04]'></span><a href="/login" className='cursor-pointer'> Click here to Login</a> </p> */}
                 </div>
                 <Image src="/chest.svg" alt="" height={250} width={347} onClick={childClick}></Image>
             </div>
